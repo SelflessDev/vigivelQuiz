@@ -32,11 +32,27 @@ export default class CheckGroup extends React.Component {
 		let { value } = this.props
 
 		value[this.props.questionId] = value[this.props.questionId]
-			? value[this.props.questionId] : { value: {}, answered: true }
+			? value[this.props.questionId] 
+			: { value: {} }
 
-		value[this.props.questionId].value[id] = content
+		value[this.props.questionId].value[id] = { value: content }
+		value[this.props.questionId].answered = this.checkForAnswers()
 
 		this.props.bind(value)
+	}
+
+	checkForAnswers() {
+		let { value } = this.props.value[this.props.questionId],
+			answered = false
+
+		Object.keys(value).map(i => {
+			console.log(value[i].value)
+			if(value[i].value) {
+				answered = true
+			}
+		})
+		
+		return answered
 	}
 
 	render() {

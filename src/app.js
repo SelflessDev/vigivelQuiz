@@ -48,6 +48,10 @@ class App extends React.Component {
 		this.el.focus()
 	}
 
+	componentDidUpdate() {
+		// console.log(this.state)
+	}
+
 	handleKeyPress(e) {
 		e.key == "Enter" &&
 			this.advance()
