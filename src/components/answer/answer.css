@@ -61,7 +61,7 @@
 
 .answer input[type="text"] {
 	width: 100%;
-	padding: 16px 20px;
+	padding: 0 16px 20px 16px;
 	background: transparent;
 	outline: 0;
 	border: none;
@@ -75,9 +75,9 @@
 }
 .answer .open::after {
 	content: '';
-	width: 0;
+	width: 15%;
 	height: 2px;
-	background: var(--blue);
+	background: var(--white);
 	position: absolute;
 	left: 0;
 	bottom: 0;
@@ -85,4 +85,5 @@
 }
 .answer input[type="text"]:focus~.open::after {
 	width: 100%;
+	background: var(--blue);
 }
