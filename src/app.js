@@ -44,22 +44,44 @@ class App extends React.Component {
 		}
 	]
 
-	componentDidUpdate() {
-		console.log(this.state)
+	componentDidMount() {
+		this.el.focus()
+	}
+
+	handleKeyPress(e) {
+		e.key == "Enter" &&
+			this.advance()
 	}
 
 	advance() {
 		let { answers, active } = this.state
+		
 		answers[active + 1].answered &&
 			this.goForward()
 	}
 
 	goForward() {
 		let { active } = this.state
-		if(active == this.questions.length - 1) return
+		if(active == this.questions.length - 1){
+			this.submit()
+			return
+		}
 
 		active++
 		this.setState({ active })
+	}
+
+	submit() {
+		let result = this.formatResults()
+		console.log(result)
+	}
+
+	formatResults() {
+		return Object.keys(
+			this.state.answers
+		).map(i => 
+			this.state.answers[i].value
+		)
 	}
 
 	goBackwards() {
@@ -72,8 +94,13 @@ class App extends React.Component {
 
 	render() {
 		return (
-			<div className="questions">
-				<div className="wrapper">	
+			<div 
+				ref={ ref => this.el = ref }
+				tabIndex="0"
+				className="questions" 
+				onKeyPress={ e => this.handleKeyPress(e) }
+			>
+				<div className="wrapper">
 					<Slider 
 						questions={ this.questions } 
 						value={ this.state.answers }
@@ -81,14 +108,20 @@ class App extends React.Component {
 						bind={ value => this.setState({ answers: value }) }
 					/>
 					<div className="buttons">
-						<button onClick={ () => this.goBackwards() }>Voltar</button>
 						<button 
-							onClick={ () => this.advance() }
+							type="submit"
+							onClick={ () => this.goBackwards() }
+						>
+							Voltar
+						</button>
+						<button
+							type="submit"
 							disabled={ 
 								this.state.answers[this.state.active + 1]
 									? !this.state.answers[this.state.active + 1].answered
 									: true
 							}
+							onClick={ () => this.advance() }
 						>
 							Continuar
 						</button>

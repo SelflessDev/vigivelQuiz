@@ -12,6 +12,7 @@
 	justify-content: center;
 	background: var(--black);
 	height: 100vh;
+	outline: 0;
 }
 .questions .wrapper {
 	display: flex;
