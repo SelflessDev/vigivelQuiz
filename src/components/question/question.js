@@ -5,7 +5,16 @@ import Answer from 'answer/answer'
 export default class Question extends React.Component {
 	render() {
 		return (
-			<div className="question">
+			<div 
+				ref={ this.props.bindElement }
+				className={ `question ${ 
+					this.props.active == this.props.index
+						? 'active'
+						: this.props.active == this.props.index + 1
+							? 'half-gone'
+							: 'gone'
+				}` }
+			>
 				<h2 className="block">
 					{ this.props.text }
 				</h2>

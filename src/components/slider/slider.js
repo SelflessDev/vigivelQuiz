@@ -5,21 +5,55 @@ import Question from 'question/question'
 
 export default class Slider extends React.Component {
 
-	state = {}
+	state = {
+		position: 0
+	}
+
+	questions={}
+
+	componentDidMount() {
+		this.getSlidingPosition(this.props)
+	}
+
+	componentWillReceiveProps(nextProps) {
+		nextProps.active != this.props.active &&	
+			this.getSlidingPosition(nextProps)
+	}
+
+	getSlidingPosition(props) {
+		let position = this.slider.clientHeight / 2
+
+		for (var i = 1; i < props.active + 1; i++) {
+			position-= this.questions[i].clientHeight
+		}
+
+		this.setState({ position })
+	}
 
 	render() {
 		return (
-			<div className="slider">
-				{ 
-					this.props.questions.map(question => 
-						<Question 
-							key={ question.id } 
-							value={ this.props.value }
-							bind={ this.props.bind }
-							{ ...question }
-						/>
-					) 
-				}
+			<div
+				ref={ ref => this.slider = ref }
+				className="slider"
+			>
+				<div 
+					className="content"
+					style={{ top: this.state.position }}
+				>
+					{ 
+						this.props.questions.map((question, i) => 
+							<Question
+								key={ question.id }
+								index={ i }
+								value={ this.props.value }
+								bind={ this.props.bind }
+								bindElement={ ref => this.questions[i] = ref }
+								active={ this.props.active }
+								{ ...question }
+							/>
+						) 
+					}
+				</div>
 			</div>
 		)
 	}

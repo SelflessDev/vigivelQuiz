@@ -1,4 +1,10 @@
 .slider {
+	position: relative;
 	width: 480px;
-	height: 90%;
+	height: 100%;
+	overflow-y: hidden;
+}
+.slider .content {
+	position: absolute;
+	transition: all 0.5s ease-in-out;
 }
