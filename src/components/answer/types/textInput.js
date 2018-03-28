@@ -37,7 +37,7 @@ export default class TextInput extends React.Component {
 					onChange={ e => this.handleChange(e) }
 				/>
 				<div className={ `open ${ 
-					this.props.value[this.props.questionId] != ''
+					this.props.value[this.props.questionId].value != ''
 						? 'filled'
 						: ''
 				}` }/>

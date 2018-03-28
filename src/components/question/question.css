@@ -18,12 +18,22 @@
 	width: 26%;
 	height: 4px;
 	background: var(--blue);
+	transition: all 0.2s ease-in-out;
 }
+
 .question.half-gone {
 	opacity: 0.26;
 	transform: translate(0, -50%) scale(0.95);
 }
+.question.half-gone h2::after {
+	width: 13%;
+}
+
 .question.gone {
 	opacity: 0;
 	transform: translate(0, -50%) scale(0.9);	
+}
+.question.gone h2::after {
+	width: 0;
+	transition: all 0.2s ease-in-out;
 }
