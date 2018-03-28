@@ -9,12 +9,71 @@
 
 .questions {
 	display: flex;
-	align-items: center;
 	justify-content: center;
 	background: var(--black);
 	height: 100vh;
 }
+.questions .wrapper {
+	display: flex;
+	flex-direction: column;
+	width: 480px;
+	height: 100%;
+}
 
 .block {
 	padding: 30px 20px;
+}
+
+.questions .buttons {
+	display: flex;
+	justify-content: flex-end;
+	width: 100%;
+	padding-bottom: 5vh;
+}
+
+.questions button {
+	position: relative;
+	padding: 10px 20px;
+	font-family: 'Oswald', sans-serif;
+	font-size: 1em;
+	outline: 0;
+	border: none;
+	text-transform: uppercase;
+	background: transparent;
+	transition: all 0.2s ease-in-out;
+	cursor: pointer;
+}
+.questions button:nth-child(1) {
+	color: var(--white);
+	opacity: 0.26
+}
+.questions button:nth-child(2) {
+	color: var(--blue);
+}
+
+.questions button::after {
+	content: '';
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	width: 0;
+	height: 2px;
+	transition: all 0.2s ease-in-out;
+}
+.questions button:nth-child(1)::after {
+	background: var(--white)
+}
+.questions button:nth-child(2)::after {
+	background: var(--blue)
+}
+.questions button:hover::after {
+	width: 100%;
+}
+
+.questions button:disabled {
+	opacity: 0.26;
+	cursor: default;
+}
+.questions button:disabled:hover::after {
+	width: 0;
 }

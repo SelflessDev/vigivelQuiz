@@ -14,7 +14,10 @@ export default class TextInput extends React.Component {
 
 	bind(content) {
 		let { value } = this.props
-		value[this.props.questionId] = content
+		value[this.props.questionId] = {
+			value: content,
+			answered: content != ''
+		}
 
 		this.props.bind(value)
 	}
@@ -26,7 +29,11 @@ export default class TextInput extends React.Component {
 					type="text"
 					name={ this.props.questionId }
 					placeholder={ this.props.placeholder }
-					value={ this.props.value[this.props.questionId] || '' }
+					value={ 
+						this.props.value[this.props.questionId]
+							? this.props.value[this.props.questionId].value || ''
+							: ''
+					}
 					onChange={ e => this.handleChange(e) }
 				/>
 				<div className={ `open ${ 

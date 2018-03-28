@@ -33,28 +33,67 @@ class App extends React.Component {
 					{ id: 3, value: 'Nah' }
 				]
 			}
+		},
+		{
+			id: 3,
+			text: 'Ok, then. How big is this fuccing blyat ?',
+			answer: {
+				type: 'open',
+				placeholder: 'Huh, bitch ?'
+			}
 		}
 	]
 
-	componentDidMount() {
-		setTimeout(() => {
-			this.setState({ active: 1 })
-		}, 2000)
+	componentDidUpdate() {
+		console.log(this.state)
 	}
 
-	componentDidUpdate() {
-		// console.log(this.state)
+	advance() {
+		let { answers, active } = this.state
+		answers[active + 1].answered &&
+			this.goForward()
+	}
+
+	goForward() {
+		let { active } = this.state
+		if(active == this.questions.length - 1) return
+
+		active++
+		this.setState({ active })
+	}
+
+	goBackwards() {
+		let { active } = this.state
+		if(active == 0) return
+
+		active--
+		this.setState({ active })
 	}
 
 	render() {
 		return (
 			<div className="questions">
-				<Slider 
-					questions={ this.questions } 
-					value={ this.state.answers }
-					active={ this.state.active }
-					bind={ value => this.setState(value) }
-				/>
+				<div className="wrapper">	
+					<Slider 
+						questions={ this.questions } 
+						value={ this.state.answers }
+						active={ this.state.active }
+						bind={ value => this.setState({ answers: value }) }
+					/>
+					<div className="buttons">
+						<button onClick={ () => this.goBackwards() }>Voltar</button>
+						<button 
+							onClick={ () => this.advance() }
+							disabled={ 
+								this.state.answers[this.state.active + 1]
+									? !this.state.answers[this.state.active + 1].answered
+									: true
+							}
+						>
+							Continuar
+						</button>
+					</div>
+				</div>
 			</div>
 		)
 	}

@@ -32,9 +32,9 @@ export default class CheckGroup extends React.Component {
 		let { value } = this.props
 
 		value[this.props.questionId] = value[this.props.questionId]
-			? value[this.props.questionId] : {}
+			? value[this.props.questionId] : { value: {}, answered: true }
 
-		value[this.props.questionId][id] = content
+		value[this.props.questionId].value[id] = content
 
 		this.props.bind(value)
 	}

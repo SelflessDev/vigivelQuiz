@@ -23,7 +23,10 @@ export default class RadioGroup extends React.Component {
 
 	bind(id) {
 		let { value } = this.props
-		value[this.props.questionId] = id
+		value[this.props.questionId] = {
+			value: id,
+			answered: id != null
+		}
 
 		this.props.bind(value)
 	}
