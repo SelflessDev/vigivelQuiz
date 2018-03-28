@@ -83,6 +83,9 @@
 	bottom: 0;
 	transition: all 0.2s ease-in-out;
 }
+.answer .open.filled::after {
+	background: var(--blue);
+}
 .answer input[type="text"]:focus~.open::after {
 	width: 100%;
 	background: var(--blue);

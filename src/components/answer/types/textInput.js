@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 export default class TextInput extends React.Component {
 
 	componentWillMount() {
-		this.bind(null)
+		this.bind('')
 	}
 
 	handleChange(e) {
@@ -29,7 +29,11 @@ export default class TextInput extends React.Component {
 					value={ this.props.value[this.props.questionId] || '' }
 					onChange={ e => this.handleChange(e) }
 				/>
-				<div className="open"/>
+				<div className={ `open ${ 
+					this.props.value[this.props.questionId] != ''
+						? 'filled'
+						: ''
+				}` }/>
 			</div>
 		)
 	}
