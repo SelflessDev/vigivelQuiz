@@ -4,6 +4,7 @@ import './answer.css'
 
 import RadioGroup from './types/radioGroup'
 import CheckGroup from './types/checkGroup'
+import TextInput from './types/textInput'
 
 export default class Answer extends React.Component {
 
@@ -17,7 +18,8 @@ export default class Answer extends React.Component {
 
 	answers = {
 		'unique': RadioGroup,
-		'multiple': CheckGroup
+		'multiple': CheckGroup,
+		'open': TextInput
 	}
 
 	render() {

@@ -58,3 +58,31 @@
 .answer input[type="checkbox"]:checked+label {
 	color: var(--blue);
 }
+
+.answer input[type="text"] {
+	width: 100%;
+	padding: 16px 20px;
+	background: transparent;
+	outline: 0;
+	border: none;
+	font-family: 'Oswald', sans-serif;
+	font-weight: 400;
+	font-size: 0.9em;
+	color: var(--blue);
+}
+.answer .open {
+	position: relative;
+}
+.answer .open::after {
+	content: '';
+	width: 0;
+	height: 2px;
+	background: var(--blue);
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	transition: all 0.2s ease-in-out;
+}
+.answer input[type="text"]:focus~.open::after {
+	width: 100%;
+}

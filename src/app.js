@@ -30,6 +30,14 @@ class App extends React.Component {
 					{ id: 3, value: 'Nah' }
 				]
 			}
+		},
+		{
+			id: 3,
+			text: 'Ok, then. How big is this fuccing blyat ?',
+			answer: {
+				type: 'open',
+				placeholder: 'Huh, bitch ?'
+			}
 		}
 	]
 
