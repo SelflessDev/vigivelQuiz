@@ -74,21 +74,11 @@ class App extends React.Component {
 	}
 
 	submit() {
-		let result = this.formatResults()
-		console.log(result)
-	}
-
-	formatResults() {
-		return Object.keys(
-			this.state.answers
-		).map(i => 
-			this.state.answers[i].value
-		)
+		console.log(this.state.answers)
 	}
 
 	goBackwards() {
 		let { active } = this.state
-		if(active == 0) return
 
 		active--
 		this.setState({ active })
@@ -113,6 +103,7 @@ class App extends React.Component {
 						<button 
 							type="submit"
 							onClick={ () => this.goBackwards() }
+							disabled={ this.state.active == 0 }
 						>
 							Voltar
 						</button>

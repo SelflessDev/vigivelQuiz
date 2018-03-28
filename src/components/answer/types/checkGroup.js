@@ -46,7 +46,6 @@ export default class CheckGroup extends React.Component {
 			answered = false
 
 		Object.keys(value).map(i => {
-			console.log(value[i].value)
 			if(value[i].value) {
 				answered = true
 			}
