@@ -43,7 +43,7 @@ export default class CheckGroup extends React.Component {
 		return this.props.options.map(option =>
 			<div className="answer" key={ option.id }>
 				<input 
-					id={ `${ this.props.questionId }${ option.id }` } 
+					id={ `${ this.props.questionId }${ option.id }` }
 					type="checkbox" 
 					name={ this.props.questionId }
 					onChange={ e => this.handleChange(e, option.id) }
