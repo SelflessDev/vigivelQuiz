@@ -12,6 +12,8 @@ export default class Question extends React.Component {
 				<div className="block">
 					<Answer
 						questionId={ this.props.id }
+						value={ this.props.value }
+						bind={ this.props.bind }
 						{ ...this.props.answer }
 					/>
 				</div>

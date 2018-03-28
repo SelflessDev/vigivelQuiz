@@ -6,6 +6,7 @@ import Slider from 'slider/slider'
 
 class App extends React.Component {
 
+	state = {}
 	questions = [
 		{
 			id: 1,
@@ -17,13 +18,33 @@ class App extends React.Component {
 					{ id: 2, value: 'Nat cool' }
 				]
 			}
+		},
+		{
+			id: 2,
+			text: 'Yes, but is the blyat enough of a cyka ?',
+			answer: {
+				type: 'unique',
+				options: [
+					{ id: 1, value: 'Off course' },
+					{ id: 2, value: 'Not really' },
+					{ id: 3, value: 'Nah' }
+				]
+			}
 		}
 	]
+
+	componentDidUpdate() {
+		console.log(this.state)
+	}
 
 	render() {
 		return (
 			<div className="questions">
-				<Slider questions={ this.questions } />
+				<Slider 
+					questions={ this.questions } 
+					value={ this.state }
+					bind={ value => this.setState(value) }
+				/>
 			</div>
 		)
 	}
