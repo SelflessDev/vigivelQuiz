@@ -53,19 +53,17 @@ class App extends React.Component {
 	}
 
 	handleKeyPress(e) {
-		e.key == "Enter" &&
-			this.advance()
+		e.key == "Enter" && this.advance()
 	}
 
 	advance() {
 		let { answers, active } = this.state
-		
-		answers[active + 1].answered &&
-			this.goForward()
+		answers[active + 1].answered && this.goForward()
 	}
 
 	goForward() {
 		let { active } = this.state
+		
 		if(active == this.questions.length - 1){
 			this.submit()
 			return
