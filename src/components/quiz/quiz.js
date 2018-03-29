@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import './quiz.css'
 
 import Slider from 'slider/slider'
+import Loading from 'loading/loading'
 
 export default class Quiz extends React.Component {
 
@@ -45,9 +46,12 @@ export default class Quiz extends React.Component {
 			<div 
 				ref={ ref => this.el = ref }
 				tabIndex="0"
-				className="questions" 
+				className={ `questions ${
+					!this.props.questions ? 'loading' : ''
+				}` }
 				onKeyPress={ e => this.handleKeyPress(e) }
 			>
+				<Loading active={ this.props.questions == null }/>
 				<div className="wrapper">
 					<Slider 
 						questions={ this.props.questions } 
@@ -55,6 +59,7 @@ export default class Quiz extends React.Component {
 						active={ this.props.active }
 						bind={ value => this.setState({ answers: value }) }
 					/>
+					<Loading active={ this.props.loading }/>
 					<div className="buttons">
 						<button 
 							type="submit"
@@ -76,7 +81,7 @@ export default class Quiz extends React.Component {
 						>
 							Continuar
 						</button>
-					</div>
+					</div>	
 				</div>
 			</div>
 		)

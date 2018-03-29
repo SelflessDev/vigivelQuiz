@@ -15,11 +15,12 @@ class App extends React.Component {
 	}
 
 	getNext() {
+		this.setState({ loading: true })
 		return this.questionsData.getNextQuestion().then(question => {
 			let questions = this.state.questions || []
 
 			questions.push(question)
-			this.setState({ questions })
+			this.setState({ questions, loading: false })
 		})
 	}
 
@@ -38,6 +39,7 @@ class App extends React.Component {
 				bindActive={ value => this.bindActive(value) }
 				active={ this.state.active }
 				onSubmit={ () => console.log('submit') }
+				loading={ this.state.loading }
 			/>
 		)
 	}

@@ -1,0 +1,72 @@
+.loading-anim {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	opacity: 0;
+	transition: all 0.5s ease-in-out;
+}
+
+.loading-anim.active {
+	opacity: 1;
+}
+
+.loading-anim .animated {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: flex-end;
+	padding-bottom: 10px;
+	height: 30px;
+}
+.loading-anim .animated .pipe {
+	width: 3px;
+	background: var(--white);
+	margin: 0 5px;
+	animation: loading;
+	animation-duration: 1s;
+	animation-timing-function: ease-in-out;
+	animation-iteration-count: infinite;
+}
+
+.loading-anim .animated .pipe:nth-child(2) {
+	animation-delay: 0.1s;
+}
+.loading-anim .animated .pipe:nth-child(3) {
+	animation-delay: 0.2s;
+}
+.loading-anim .animated .pipe:nth-child(4) {
+	animation-delay: 0.3s;	
+}
+.loading-anim .animated .pipe:nth-child(5) {
+	animation-delay: 0.4s;
+}
+.loading-anim .animated .pipe:nth-child(6) {
+	animation-delay: 0.5s;
+}
+.loading-anim .animated .pipe:nth-child(7) {
+	animation-delay: 0.6s;
+}
+
+.loading-anim h4 {
+	font-family: 'Oswald', sans-serif;
+	font-weight: 400;
+	font-size: 1.1em;
+	text-transform: uppercase;
+	text-align: center;
+	color: var(--white);
+}
+
+@keyframes loading {
+	0% {
+		height: 3px;
+		background: var(--white);
+	}
+	50% {
+		height: 30px;
+		background: var(--blue);
+	}
+	100% {
+		height: 3px;
+		background: var(--white);
+	}
+}

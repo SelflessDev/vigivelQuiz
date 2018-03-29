@@ -10,6 +10,12 @@
 	flex-direction: column;
 	width: 480px;
 	height: 100%;
+	transition: all 0.5s ease-in-out;
+	transition-delay: 0.4s;
+}
+
+.questions.loading .wrapper {
+	opacity: 0
 }
 
 .questions .buttons {
@@ -64,6 +70,12 @@
 }
 .questions button:disabled:hover::after {
 	width: 0;
+}
+
+.questions .loading-anim:nth-child(1) {
+	position: absolute;
+	top: 50%;
+	transform: translate(0, -50%);
 }
 
 @media only screen and (max-width: 480px) {

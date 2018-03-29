@@ -21,10 +21,11 @@ export default class Slider extends React.Component {
 	}
 
 	getSlidingPosition(props) {
-		let position = this.slider.clientHeight / 2
+		let { clientHeight } = this.slider,
+			position = clientHeight / 2
 
 		for (var i = 1; i < props.active + 1; i++) {
-			position-= this.questions[i].clientHeight
+			position-= this.questions[i - 1].clientHeight
 		}
 
 		this.setState({ position })

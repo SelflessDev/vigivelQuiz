@@ -41,7 +41,7 @@ export default class QuestionsData {
 			setTimeout(() => {
 				this.current++
 				resolve(this.questions[this.current])
-			}, 500)
+			}, 1000)
 		})
 	}
 }
