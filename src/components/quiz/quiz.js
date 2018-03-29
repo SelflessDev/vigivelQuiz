@@ -4,6 +4,7 @@ import './quiz.css'
 
 import Slider from 'slider/slider'
 import Loading from 'loading/loading'
+import Info from 'info/info'
 
 export default class Quiz extends React.Component {
 
@@ -61,28 +62,29 @@ export default class Quiz extends React.Component {
 						loading={ this.props.loading }
 					/>
 					<Loading active={ this.props.loading }/>
-					<div className="buttons">
-						<button 
-							type="submit"
-							onClick={ () => this.goBackwards() }
-							disabled={ this.props.active == 0 }
-						>
-							Voltar
-						</button>
-						<button
-							type="submit"
-							disabled={
-								this.props.questions
-									? this.state.answers[this.props.questions[this.props.active].id]
-										? !this.state.answers[this.props.questions[this.props.active].id].answered
+					<div className="bottom">
+						<Info/>
+						<div className="buttons">
+							<button 
+								onClick={ () => this.goBackwards() }
+								disabled={ this.props.active == 0 }
+							>
+								Voltar
+							</button>
+							<button
+								disabled={
+									this.props.questions
+										? this.state.answers[this.props.questions[this.props.active].id]
+											? !this.state.answers[this.props.questions[this.props.active].id].answered
+											: true
 										: true
-									: true
-							}
-							onClick={ () => this.goForward() }
-						>
-							Continuar
-						</button>
-					</div>	
+								}
+								onClick={ () => this.goForward() }
+							>
+								Continuar
+							</button>
+						</div>
+					</div>
 				</div>
 			</div>
 		)

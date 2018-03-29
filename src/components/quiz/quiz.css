@@ -18,11 +18,16 @@
 	opacity: 0
 }
 
+.questions .bottom {
+	position: relative;
+	margin-bottom: 5vh;
+}
+
 .questions .buttons {
 	display: flex;
 	justify-content: flex-end;
+	align-items: center;
 	width: 100%;
-	padding-bottom: 5vh;
 }
 
 .questions button {

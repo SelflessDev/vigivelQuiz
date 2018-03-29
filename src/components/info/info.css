@@ -1,0 +1,51 @@
+.info {
+	display: flex;
+	justify-content: flex-start;
+	align-items: center;
+}
+
+.info .container {
+	display: inline-block;
+	padding: 15px 20px;
+	position: absolute;
+	bottom: 0;
+	max-width: 80px;
+	max-height: 54px;
+	transition: all 0.4s ease-in-out;
+	z-index: 1;
+	overflow: hidden;
+}
+.info .container::-webkit-scrollbar {
+	width: 10px;
+}
+.info .container::-webkit-scrollbar-thumb {
+	background: rgb(10,10,10);
+}
+
+.info .content {
+	width: 300px;
+}
+
+.info h5 {
+	font-family: 'Oswald', sans-serif;
+	padding-bottom: 15px;
+	font-weight: 400;
+	font-size: 1.1em;
+	color: var(--blue);
+	text-transform: uppercase;
+}
+
+.info .content p {
+	font-family: 'Oswald', sans-serif;
+	font-weight: 400;
+	font-size: 1em;
+	color: var(--white);
+	overflow: hidden;
+}
+
+.info .container:hover {
+	max-width: 340px;
+	max-height: 80vh;
+	background: rgb(5,5,5);
+	overflow-y: auto;
+}
