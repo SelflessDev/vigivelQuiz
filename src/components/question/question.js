@@ -13,6 +13,8 @@ export default class Question extends React.Component {
 						: this.props.active == this.props.index + 1
 							? 'half-gone'
 							: 'gone'
+				} ${
+					this.props.loading ? 'loading' : ''
 				}` }
 			>
 				<h2 className="block">
@@ -23,6 +25,7 @@ export default class Question extends React.Component {
 						questionId={ this.props.id }
 						value={ this.props.value }
 						bind={ this.props.bind }
+						editable={ this.props.active == this.props.index }
 						{ ...this.props.answer }
 					/>
 				</div>

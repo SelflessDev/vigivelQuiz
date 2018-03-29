@@ -42,6 +42,7 @@ export default class Slider extends React.Component {
 					bind={ this.props.bind }
 					bindElement={ ref => this.questions[i] = ref }
 					active={ this.props.active }
+					loading={ this.props.loading }
 					{ ...question }
 				/>
 			)

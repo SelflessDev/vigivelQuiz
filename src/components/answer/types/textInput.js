@@ -35,6 +35,7 @@ export default class TextInput extends React.Component {
 							: ''
 					}
 					onChange={ e => this.handleChange(e) }
+					readOnly={ !this.props.editable }
 				/>
 				<div className={ `open ${ 
 					this.props.value[this.props.questionId].value != ''

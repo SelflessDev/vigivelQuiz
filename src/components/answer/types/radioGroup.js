@@ -39,6 +39,7 @@ export default class RadioGroup extends React.Component {
 					type="radio" 
 					name={ this.props.questionId }
 					onChange={ () => this.bind(option.id) }
+					disabled={ !this.props.editable }
 				/>
 				<label htmlFor={ `${ this.props.questionId }${ option.id }` }>
 					{ option.value }

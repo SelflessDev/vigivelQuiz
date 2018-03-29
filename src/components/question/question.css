@@ -21,6 +21,10 @@
 	transition: all 0.2s ease-in-out;
 }
 
+.question.loading {
+	opacity: 0.35;
+}
+
 .question.half-gone {
 	opacity: 0.26;
 	transform: translate(0, -50%) scale(0.95);

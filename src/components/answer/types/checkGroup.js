@@ -62,6 +62,7 @@ export default class CheckGroup extends React.Component {
 					type="checkbox" 
 					name={ this.props.questionId }
 					onChange={ e => this.handleChange(e, option.id) }
+					disabled={ !this.props.editable }
 				/>
 				<label htmlFor={ `${ this.props.questionId }${ option.id }` }>
 					{ option.value }

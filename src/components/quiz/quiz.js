@@ -58,6 +58,7 @@ export default class Quiz extends React.Component {
 						value={ this.state.answers }
 						active={ this.props.active }
 						bind={ value => this.setState({ answers: value }) }
+						loading={ this.props.loading }
 					/>
 					<Loading active={ this.props.loading }/>
 					<div className="buttons">
