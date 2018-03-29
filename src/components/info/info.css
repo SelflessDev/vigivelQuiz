@@ -39,6 +39,9 @@
 	color: var(--blue);
 	text-transform: uppercase;
 }
+.info h5::after {
+	content: 'SOBRE'
+}
 
 .info .content p {
 	font-family: 'Oswald', sans-serif;
@@ -73,10 +76,23 @@
 	.info .content {
 		width: calc(100vw - 90px);
 	}
+	.info .container {
+		padding: 18px 20px;
+	}
 	.info .container:hover {
 		background: var(--black);
 	}
 	.info.opened .container:hover {
 		background: rgb(5,5,5);
+	}
+	.info h5 {
+		text-transform: unset;
+		font-size: 0.9em;
+	}
+	.info h5::after {
+		content: 'i';
+		padding: 1px 10px;
+		border: 1px solid var(--blue);
+		border-radius: 50%;
 	}
 }
