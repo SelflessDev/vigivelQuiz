@@ -8,12 +8,16 @@
 	display: inline-block;
 	padding: 15px 20px;
 	position: absolute;
-	bottom: 0;
+	bottom: 2px;
 	max-width: 80px;
 	max-height: 54px;
 	transition: all 0.4s ease-in-out;
 	z-index: 1;
 	overflow: hidden;
+	cursor: pointer;
+}
+.info .container:hover {
+	background: rgb(5,5,5);	
 }
 .info .container::-webkit-scrollbar {
 	width: 10px;
@@ -24,6 +28,7 @@
 
 .info .content {
 	width: 300px;
+	position: relative;
 }
 
 .info h5 {
@@ -43,9 +48,35 @@
 	overflow: hidden;
 }
 
-.info .container:hover {
+.info.opened .container {
 	max-width: 340px;
-	max-height: 80vh;
+	max-height: 90vh;
 	background: rgb(5,5,5);
 	overflow-y: auto;
+	cursor: default;
+}
+
+.info span {
+	position: absolute;
+	top: 0;
+	right: 0;
+	font-family: 'Oswald', sans-serif;
+	font-weight: 400;
+	font-size: 0.6em;
+	color: var(--white);
+	transform: scale(2, 1);
+	padding: 7px;
+	cursor: pointer;
+}
+
+@media only screen and (max-width: 380px) {
+	.info .content {
+		width: calc(100vw - 90px);
+	}
+	.info .container:hover {
+		background: var(--black);
+	}
+	.info.opened .container:hover {
+		background: rgb(5,5,5);
+	}
 }
