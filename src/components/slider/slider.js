@@ -9,14 +9,14 @@ export default class Slider extends React.Component {
 		position: 0
 	}
 
-	questions={}
+	questions = {}
 
 	componentDidMount() {
 		this.getSlidingPosition(this.props)
 	}
 
 	componentWillReceiveProps(nextProps) {
-		nextProps.active != this.props.active &&	
+		nextProps.active != this.props.active &&
 			this.getSlidingPosition(nextProps)
 	}
 
@@ -30,6 +30,22 @@ export default class Slider extends React.Component {
 		this.setState({ position })
 	}
 
+	getQuestions() {
+		return !this.props.questions
+			? null
+			: this.props.questions.map((question, i) => 
+				<Question
+					key={ question.id }
+					index={ i }
+					value={ this.props.value }
+					bind={ this.props.bind }
+					bindElement={ ref => this.questions[i] = ref }
+					active={ this.props.active }
+					{ ...question }
+				/>
+			)
+	}
+
 	render() {
 		return (
 			<div
@@ -40,19 +56,7 @@ export default class Slider extends React.Component {
 					className="content"
 					style={{ top: this.state.position }}
 				>
-					{ 
-						this.props.questions.map((question, i) => 
-							<Question
-								key={ question.id }
-								index={ i }
-								value={ this.props.value }
-								bind={ this.props.bind }
-								bindElement={ ref => this.questions[i] = ref }
-								active={ this.props.active }
-								{ ...question }
-							/>
-						) 
-					}
+					{ this.getQuestions() }
 				</div>
 			</div>
 		)
