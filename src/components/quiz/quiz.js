@@ -58,7 +58,12 @@ export default class Quiz extends React.Component {
 					/>
 					<Loading active={ this.props.loading }/>
 					<div className="bottom">
-						<Info/>
+						<Info>
+							{ 
+								this.props.questions &&
+									this.props.questions[this.props.active].about 
+							}
+						</Info>
 						<div className="buttons">
 							<button 
 								onClick={ () => this.goBackwards() }
