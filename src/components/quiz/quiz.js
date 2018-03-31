@@ -8,10 +8,6 @@ import Info from 'info/info'
 
 export default class Quiz extends React.Component {
 
-	state = {
-		answers: {}
-	}
-
 	componentDidMount() {
 		this.el.focus()
 	}
@@ -21,11 +17,10 @@ export default class Quiz extends React.Component {
 	}
 
 	goForward() {
-		let { answers } = this.state,
-			{ active } = this.props
+		let { answers, active } = this.props
 		
 		if(this.props.questions[active].isLast){
-			this.props.onSubmit(this.state.answers)
+			this.props.onSubmit(this.props.answers)
 			return
 		}
 
@@ -56,9 +51,9 @@ export default class Quiz extends React.Component {
 				<div className="wrapper">
 					<Slider 
 						questions={ this.props.questions } 
-						value={ this.state.answers }
+						value={ this.props.answers }
 						active={ this.props.active }
-						bind={ value => this.setState({ answers: value }) }
+						bind={ value => this.props.bindAnswers(value) }
 						loading={ this.props.loading }
 					/>
 					<Loading active={ this.props.loading }/>
@@ -74,8 +69,8 @@ export default class Quiz extends React.Component {
 							<button
 								disabled={
 									this.props.questions
-										? this.state.answers[this.props.questions[this.props.active].id]
-											? !this.state.answers[this.props.questions[this.props.active].id].answered
+										? this.props.answers[this.props.questions[this.props.active].id]
+											? !this.props.answers[this.props.questions[this.props.active].id].answered
 											: true
 										: true
 								}
@@ -94,11 +89,14 @@ export default class Quiz extends React.Component {
 Quiz.propTypes = {
 	questions: PropTypes.array,
 	bindActive: PropTypes.func.isRequired,
+	bindAnswers: PropTypes.func.isRequired,
 	active: PropTypes.number.isRequired,
 	onSubmit: PropTypes.func.isRequired,
-	controlled: PropTypes.bool
+	controlled: PropTypes.bool,
+	answers: PropTypes.object
 }
 
 Quiz.defaultProps = {
-	active: 0
+	active: 0,
+	answers: {}
 }

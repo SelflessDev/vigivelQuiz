@@ -11,17 +11,34 @@ class App extends React.Component {
 	questionsData = new QuestionsData()
 
 	componentDidMount() {
-		this.getNext()
+		this.getFirst()
+	}
+
+	getFirst() {
+		this.questionsData.getFirstQuestion().then(question => {
+			let questions = []
+
+			questions.push(question)
+			this.setState({ questions })
+		})
 	}
 
 	getNext() {
 		this.setState({ loading: true })
-		return this.questionsData.getNextQuestion().then(question => {
-			let questions = this.state.questions || []
+		return this.questionsData.getNextQuestion(
+			this.getNextQuestionId()
+			).then(question => {
+				console.log(question)
+				let questions = this.state.questions
 
-			questions.push(question)
-			this.setState({ questions, loading: false })
-		})
+				questions.push(question)
+				this.setState({ questions, loading: false })
+			})
+	}
+
+	getNextQuestionId() {
+		let { answers, active, questions } = this.state
+		return questions[active].answer.related[answers[active + 1].value]
 	}
 
 	bindActive(active) {
@@ -32,12 +49,18 @@ class App extends React.Component {
 			: this.setState({ active })
 	}
 
+	bindAnswers(value) {
+		this.setState({ answers: value })
+	}
+
 	render() {
 		return (
 			<Quiz
 				questions={ this.state.questions }
 				bindActive={ value => this.bindActive(value) }
+				bindAnswers={ value => this.bindAnswers(value) }
 				active={ this.state.active }
+				answers={ this.state.answers }
 				onSubmit={ () => console.log('submit') }
 				loading={ this.state.loading }
 			/>

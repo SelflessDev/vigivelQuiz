@@ -1,47 +1,29 @@
-export default class QuestionsData {
+import Data from './data'
 
-	current = -1
-	questions = [
-		{
-			id: 1,
-			text: 'Você é pessoa física ou jurídica ?',
-			answer: {
-				type: 'unique',
-				options: [
-					{ id: 1, value: 'Física' },
-					{ id: 2, value: 'Jurídica' }
-				]
-			}
-		},
-		{
-			id: 2,
-			text: 'Quais destes ambientes você possui em sua casa ?',
-			answer: {
-				type: 'multiple',
-				options: [
-					{ id: 1, value: 'Garagem' },
-					{ id: 2, value: 'Sala' },
-					{ id: 3, value: 'Quarto' }
-				]
-			}
-		},
-		{
-			id: 3,
-			text: 'Qual a área de sua garagem ?',
-			answer: {
-				type: 'open',
-				placeholder: 'Ex: 4m'
-			},
-			isLast: true
-		}
-	]
+export default class QuestionsData extends Data {
 
-	getNextQuestion() {
-		return new Promise((resolve, reject) => {
-			setTimeout(() => {
-				this.current++
-				resolve(this.questions[this.current])
-			}, 1000)
-		})
+	getFirstQuestion() {
+		return this.get(`/answers`).then(question =>
+			this.formatQuestion(question)
+		)
+	}
+
+	getNextQuestion(id) {
+		return this.get(`/answers/${ id }`).then(question =>
+			this.formatQuestion(question)
+		)
+	}
+
+	formatQuestion(question, id) {
+		let formated = question
+
+		formated.answer.options = formated.answer.options.value
+			.map((answer, i) => ({
+				id: i,
+				value: answer
+			}))
+
+		formated.answer.related = formated.answer.related.id_pergunta_relacionada
+		return formated
 	}
 }
