@@ -61,7 +61,7 @@ class App extends React.Component {
 				bindAnswers={ value => this.bindAnswers(value) }
 				active={ this.state.active }
 				answers={ this.state.answers }
-				onSubmit={ () => console.log('submit') }
+				onSubmit={ () => console.log(this.state.answers) }
 				loading={ this.state.loading }
 			/>
 		)
