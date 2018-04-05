@@ -28,8 +28,7 @@ class App extends React.Component {
 		return this.questionsData.getNextQuestion(
 			this.getNextQuestionId()
 			).then(question => {
-				console.log(question)
-				let questions = this.state.questions
+				let { questions } = this.state
 
 				questions.push(question)
 				this.setState({ questions, loading: false })

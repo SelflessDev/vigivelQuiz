@@ -19,8 +19,8 @@ export default class Quiz extends React.Component {
 	goForward() {
 		let { answers, active } = this.props
 		
-		if(this.props.questions[active].isLast){
-			this.props.onSubmit(this.props.answers)
+		if(this.props.questions[active].answer.last){
+			this.props.onSubmit()
 			return
 		}
 
