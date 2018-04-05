@@ -1,4 +1,5 @@
 const webpack = require('webpack')
+const path = require('path')
 const merge = require('webpack-merge')
 const common = require('./webpack.common.js')
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
@@ -7,6 +8,19 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin')
 module.exports = merge(common, {
 	module: {
 		rules: [
+			{
+				test: /\.js?$/,
+				use: [
+					{
+						loader: 'babel-loader',
+						options: {
+							presets: ['env', 'stage-0', 'react']
+						}
+					},
+					'react-classname-prefix-loader?prefix=quiz'
+				],
+				exclude: path.resolve(__dirname, 'node_modules')
+			},
 			{
 				test: /\.css$/,
 				use: ExtractTextPlugin.extract({
@@ -18,7 +32,8 @@ module.exports = merge(common, {
 								minimize: true,
 								sourceMap: true
 							}
-						}
+						},
+						'postcss-loader'
 					]
 				})
 			},
