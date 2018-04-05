@@ -17,13 +17,13 @@ export default class QuestionsData extends Data {
 	formatQuestion(question, id) {
 		let formated = question
 
-		formated.answer.options = formated.answer.options.value
+		if(formated.answer.options)
+			formated.answer.options = formated.answer.options.value
 			.map((answer, i) => ({
 				id: i,
 				value: answer
 			}))
 
-		formated.answer.related = formated.answer.related.id_pergunta_relacionada
 		return formated
 	}
 }
