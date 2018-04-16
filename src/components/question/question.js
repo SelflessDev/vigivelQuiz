@@ -7,20 +7,20 @@ export default class Question extends React.Component {
 		return (
 			<div 
 				ref={ this.props.bindElement }
-				className={ `question ${ 
+				className={ `quiz-question ${ 
 					this.props.active == this.props.index
-						? 'active'
+						? 'quiz-active'
 						: this.props.active == this.props.index + 1
-							? 'half-gone'
-							: 'gone'
+							? 'quiz-half-gone'
+							: 'quiz-gone'
 				} ${
-					this.props.loading ? 'loading' : ''
+					this.props.loading ? 'quiz-loading' : ''
 				}` }
 			>
-				<h2 className="block">
+				<h2 className="quiz-block">
 					{ this.props.text }
 				</h2>
-				<div className="block">
+				<div className="quiz-block">
 					<Answer
 						questionId={ this.props.id }
 						value={ this.props.value }

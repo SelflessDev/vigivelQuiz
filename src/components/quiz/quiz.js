@@ -42,13 +42,13 @@ export default class Quiz extends React.Component {
 			<div 
 				ref={ ref => this.el = ref }
 				tabIndex="0"
-				className={ `questions ${
-					!this.props.questions ? 'loading' : ''
+				className={ `quiz-questions ${
+					!this.props.questions ? 'quiz-loading' : ''
 				}` }
 				onKeyPress={ e => this.handleKeyPress(e) }
 			>
 				<Loading active={ this.props.questions == null }/>
-				<div className="wrapper">
+				<div className="quiz-wrapper">
 					<Slider 
 						questions={ this.props.questions } 
 						value={ this.props.answers }
@@ -57,14 +57,14 @@ export default class Quiz extends React.Component {
 						loading={ this.props.loading }
 					/>
 					<Loading active={ this.props.loading }/>
-					<div className="bottom">
+					<div className="quiz-bottom">
 						<Info>
 							{ 
 								this.props.questions &&
 									this.props.questions[this.props.active].about 
 							}
 						</Info>
-						<div className="buttons">
+						<div className="quiz-buttons">
 							<button 
 								onClick={ () => this.goBackwards() }
 								disabled={ this.props.active == 0 }
