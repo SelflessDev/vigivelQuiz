@@ -1,11 +1,11 @@
-.questions {
+.quiz-questions {
 	display: flex;
 	justify-content: center;
 	background: var(--black);
 	height: 100vh;
 	outline: 0;
 }
-.questions .wrapper {
+.quiz-questions .quiz-wrapper {
 	display: flex;
 	flex-direction: column;
 	width: 480px;
@@ -14,23 +14,23 @@
 	transition-delay: 0.4s;
 }
 
-.questions.loading .wrapper {
+.quiz-questions.quiz-loading .quiz-wrapper {
 	opacity: 0
 }
 
-.questions .bottom {
+.quiz-questions .quiz-bottom {
 	position: relative;
 	margin-bottom: 5vh;
 }
 
-.questions .buttons {
+.quiz-questions .quiz-buttons {
 	display: flex;
 	justify-content: flex-end;
 	align-items: center;
 	width: 100%;
 }
 
-.questions button {
+.quiz-questions button {
 	position: relative;
 	padding: 15px 20px;
 	font-family: 'Oswald', sans-serif;
@@ -42,15 +42,15 @@
 	transition: all 0.2s ease-in-out;
 	cursor: pointer;
 }
-.questions button:nth-child(1) {
+.quiz-questions button:nth-child(1) {
 	color: var(--white);
 	opacity: 0.26
 }
-.questions button:nth-child(2) {
+.quiz-questions button:nth-child(2) {
 	color: var(--blue);
 }
 
-.questions button::after {
+.quiz-questions button::after {
 	content: '';
 	position: absolute;
 	left: 0;
@@ -59,32 +59,32 @@
 	height: 2px;
 	transition: all 0.2s ease-in-out;
 }
-.questions button:nth-child(1)::after {
+.quiz-questions button:nth-child(1)::after {
 	background: var(--white)
 }
-.questions button:nth-child(2)::after {
+.quiz-questions button:nth-child(2)::after {
 	background: var(--blue)
 }
-.questions button:hover::after {
+.quiz-questions button:hover::after {
 	width: 100%;
 }
 
-.questions button:disabled {
+.quiz-questions button:disabled {
 	opacity: 0.26;
 	cursor: default;
 }
-.questions button:disabled:hover::after {
+.quiz-questions button:disabled:hover::after {
 	width: 0;
 }
 
-.questions .loading-anim:nth-child(1) {
+.quiz-questions .quiz-loading-anim:nth-child(1) {
 	position: absolute;
 	top: 50%;
 	transform: translate(0, -50%);
 }
 
 @media only screen and (max-width: 480px) {
-	.questions .wrapper {
+	.quiz-questions .quiz-wrapper {
 		padding: 0 20px;
 	}
 }

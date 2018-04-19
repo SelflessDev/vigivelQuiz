@@ -1,4 +1,4 @@
-.loading-anim {
+.quiz-loading-anim {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -6,11 +6,11 @@
 	transition: all 0.5s ease-in-out;
 }
 
-.loading-anim.active {
+.quiz-loading-anim.quiz-active {
 	opacity: 1;
 }
 
-.loading-anim .animated {
+.quiz-loading-anim .quiz-animated {
 	display: flex;
 	flex-direction: row;
 	justify-content: center;
@@ -18,7 +18,7 @@
 	padding-bottom: 10px;
 	height: 30px;
 }
-.loading-anim .animated .pipe {
+.quiz-loading-anim .quiz-animated .quiz-pipe {
 	width: 3px;
 	background: var(--white);
 	margin: 0 5px;
@@ -28,26 +28,26 @@
 	animation-iteration-count: infinite;
 }
 
-.loading-anim .animated .pipe:nth-child(2) {
+.quiz-loading-anim .quiz-animated .quiz-pipe:nth-child(2) {
 	animation-delay: 0.1s;
 }
-.loading-anim .animated .pipe:nth-child(3) {
+.quiz-loading-anim .quiz-animated .quiz-pipe:nth-child(3) {
 	animation-delay: 0.2s;
 }
-.loading-anim .animated .pipe:nth-child(4) {
+.quiz-loading-anim .quiz-animated .quiz-pipe:nth-child(4) {
 	animation-delay: 0.3s;	
 }
-.loading-anim .animated .pipe:nth-child(5) {
+.quiz-loading-anim .quiz-animated .quiz-pipe:nth-child(5) {
 	animation-delay: 0.4s;
 }
-.loading-anim .animated .pipe:nth-child(6) {
+.quiz-loading-anim .quiz-animated .quiz-pipe:nth-child(6) {
 	animation-delay: 0.5s;
 }
-.loading-anim .animated .pipe:nth-child(7) {
+.quiz-loading-anim .quiz-animated .quiz-pipe:nth-child(7) {
 	animation-delay: 0.6s;
 }
 
-.loading-anim h4 {
+.quiz-loading-anim h4 {
 	font-family: 'Oswald', sans-serif;
 	font-weight: 400;
 	font-size: 1.1em;

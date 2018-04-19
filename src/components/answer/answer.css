@@ -1,49 +1,49 @@
-.answer input[type="radio"], 
-.answer input[type="checkbox"] {
+.quiz-answer input[type="radio"], 
+.quiz-answer input[type="checkbox"] {
 	outline: 0;
 	opacity: 0;
 }
-.answer input[type="radio"]+label::before, 
-.answer input[type="radio"]+label::after, 
-.answer input[type="checkbox"]+label::before, 
-.answer input[type="checkbox"]+label::after {
+.quiz-answer input[type="radio"]+label::before, 
+.quiz-answer input[type="radio"]+label::after, 
+.quiz-answer input[type="checkbox"]+label::before, 
+.quiz-answer input[type="checkbox"]+label::after {
 	position: absolute;
 	top: 50%;
 	left: 0;
 	transform: translate(-50%, -50%);
 	transition: all 0.2s ease-in-out;
 }
-.answer input[type="radio"]+label::before, 
-.answer input[type="radio"]+label::after {
+.quiz-answer input[type="radio"]+label::before, 
+.quiz-answer input[type="radio"]+label::after {
 	border-radius: 50%;
 }
 
-.answer input[type="radio"]+label::before,
-.answer input[type="checkbox"]+label::before {
+.quiz-answer input[type="radio"]+label::before,
+.quiz-answer input[type="checkbox"]+label::before {
 	content: '';
 	width: 16px;
 	height: 16px;
 	border: 2px solid var(--white);
 }
-.answer input[type="radio"]:checked+label::before,
-.answer input[type="checkbox"]:checked+label::before {
+.quiz-answer input[type="radio"]:checked+label::before,
+.quiz-answer input[type="checkbox"]:checked+label::before {
 	border-color: var(--blue);
 }
-.answer input[type="radio"]+label::after,
-.answer input[type="checkbox"]+label::after {
+.quiz-answer input[type="radio"]+label::after,
+.quiz-answer input[type="checkbox"]+label::after {
 	content: '';
 	width: 0;
 	height: 0;
 	background: var(--blue);
 }
-.answer input[type="radio"]:checked+label::after,
-.answer input[type="checkbox"]:checked+label::after {
+.quiz-answer input[type="radio"]:checked+label::after,
+.quiz-answer input[type="checkbox"]:checked+label::after {
 	width: 9px;
 	height: 9px;
 }
 
-.answer input[type="radio"]+label,
-.answer input[type="checkbox"]+label {
+.quiz-answer input[type="radio"]+label,
+.quiz-answer input[type="checkbox"]+label {
 	position: relative;
 	font-family: 'Oswald', sans-serif;
 	font-weight: 400;
@@ -54,12 +54,12 @@
 	text-transform: uppercase;
 	transition: all 0.2s ease-in-out;
 }
-.answer input[type="radio"]:checked+label,
-.answer input[type="checkbox"]:checked+label {
+.quiz-answer input[type="radio"]:checked+label,
+.quiz-answer input[type="checkbox"]:checked+label {
 	color: var(--blue);
 }
 
-.answer input[type="text"] {
+.quiz-answer input[type="text"] {
 	width: 100%;
 	padding: 0 16px 20px 16px;
 	background: transparent;
@@ -70,10 +70,10 @@
 	font-size: 0.9em;
 	color: var(--blue);
 }
-.answer .open {
+.quiz-answer .quiz-open {
 	position: relative;
 }
-.answer .open::after {
+.quiz-answer .quiz-open::after {
 	content: '';
 	width: 15%;
 	height: 2px;
@@ -83,10 +83,10 @@
 	bottom: 0;
 	transition: all 0.2s ease-in-out;
 }
-.answer .open.filled::after {
+.quiz-answer .quiz-open.quiz-filled::after {
 	background: var(--blue);
 }
-.answer input[type="text"]:focus~.open::after {
+.quiz-answer input[type="text"]:focus~.quiz-open::after {
 	width: 100%;
 	background: var(--blue);
 }

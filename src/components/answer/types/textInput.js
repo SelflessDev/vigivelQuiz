@@ -24,7 +24,7 @@ export default class TextInput extends React.Component {
 
 	render() {
 		return (
-			<div className="answer">
+			<div className="quiz-answer">
 				<input
 					type="text"
 					name={ this.props.questionId }
@@ -37,9 +37,9 @@ export default class TextInput extends React.Component {
 					onChange={ e => this.handleChange(e) }
 					readOnly={ !this.props.editable }
 				/>
-				<div className={ `open ${ 
+				<div className={ `quiz-open ${ 
 					this.props.value[this.props.questionId].value != ''
-						? 'filled'
+						? 'quiz-filled'
 						: ''
 				}` }/>
 			</div>

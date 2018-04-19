@@ -11,7 +11,7 @@ export default class Info extends React.Component {
 
 	setupClick() {
 		window.addEventListener('click', e => {
-			if(e.target.id == "info") {
+			if(e.target.id == "quiz-info") {
 				!this.state.opened && this.setState({ opened: true })
 				return
 			} else if(this.state.opened) {
@@ -23,16 +23,16 @@ export default class Info extends React.Component {
 
 	render() {
 		return (
-			<div className={ `info ${ this.state.opened ? 'opened' : '' }` }>
+			<div className={ `quiz-info ${ this.state.opened ? 'quiz-opened' : '' }` }>
 				<div 
-					id="info"
-					className="container" 
+					id="quiz-info"
+					className="quiz-container" 
 					ref={ ref => this.about = ref }
 				>
-					<div className="content">
+					<div className="quiz-content">
 						<span>X</span>
-						<h5 id="info"></h5>
-						<p id="info">
+						<h5 id="quiz-info"></h5>
+						<p id="quiz-info">
 							{ this.props.children }
 						</p>
 					</div>

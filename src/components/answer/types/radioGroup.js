@@ -33,7 +33,7 @@ export default class RadioGroup extends React.Component {
 
 	render() {
 		return this.props.options.map(option =>
-			<div className="answer" key={ option.id }>
+			<div className="quiz-answer" key={ option.id }>
 				<input 
 					id={ `${ this.props.questionId }${ option.id }` }
 					type="radio" 

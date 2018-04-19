@@ -52,10 +52,10 @@ export default class Slider extends React.Component {
 		return (
 			<div
 				ref={ ref => this.slider = ref }
-				className="slider"
+				className="quiz-slider"
 			>
 				<div 
-					className="content"
+					className="quiz-content"
 					style={{ top: this.state.position }}
 				>
 					{ this.getQuestions() }

@@ -1,8 +1,8 @@
-.question {
+.quiz-question {
 	transform: translate(0, -50%);
 	transition: all 0.5s ease-in-out;
 }
-.question h2 {
+.quiz-question h2 {
 	position: relative;
 	font-family: 'Oswald', sans-serif;
 	font-weight: 400;
@@ -10,7 +10,7 @@
 	color: var(--blue);
 	text-transform: uppercase;
 }
-.question h2::after {
+.quiz-question h2::after {
 	content: '';
 	position: absolute;
 	left: 0;
@@ -21,23 +21,23 @@
 	transition: all 0.2s ease-in-out;
 }
 
-.question.loading {
+.quiz-question.quiz-loading {
 	opacity: 0.35;
 }
 
-.question.half-gone {
+.quiz-question.quiz-half-gone {
 	opacity: 0.26;
 	transform: translate(0, -50%) scale(0.95);
 }
-.question.half-gone h2::after {
+.quiz-question.quiz-half-gone h2::after {
 	width: 13%;
 }
 
-.question.gone {
+.quiz-question.quiz-gone {
 	opacity: 0;
 	transform: translate(0, -50%) scale(0.9);	
 }
-.question.gone h2::after {
+.quiz-question.quiz-gone h2::after {
 	width: 0;
 	transition: all 0.2s ease-in-out;
 }
