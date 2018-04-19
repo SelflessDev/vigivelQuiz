@@ -4,6 +4,7 @@ import './app.css'
 
 import Quiz from 'quiz/quiz'
 import QuestionsData from 'questionsData'
+import Modal from 'modal/modal'
 
 class App extends React.Component {
 
@@ -52,17 +53,24 @@ class App extends React.Component {
 		this.setState({ answers: value })
 	}
 
+	handleSubmit() {
+		this.setState({ modalOpened: true })
+	}
+
 	render() {
 		return (
-			<Quiz
-				questions={ this.state.questions }
-				bindActive={ value => this.bindActive(value) }
-				bindAnswers={ value => this.bindAnswers(value) }
-				active={ this.state.active }
-				answers={ this.state.answers }
-				onSubmit={ () => console.log(this.state.answers) }
-				loading={ this.state.loading }
-			/>
+			<div>
+				<Quiz
+					questions={ this.state.questions }
+					bindActive={ value => this.bindActive(value) }
+					bindAnswers={ value => this.bindAnswers(value) }
+					active={ this.state.active }
+					answers={ this.state.answers }
+					onSubmit={ () => this.handleSubmit() }
+					loading={ this.state.loading }
+				/>
+				<Modal opened={ this.state.modalOpened }/>
+			</div>
 		)
 	}
 }

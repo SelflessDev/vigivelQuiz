@@ -17,7 +17,7 @@
 	cursor: pointer;
 }
 .quiz-info .quiz-container:hover {
-	background: rgb(5,5,5);	
+	background: var(--grey);
 }
 .quiz-info .quiz-container::-webkit-scrollbar {
 	width: 10px;
@@ -54,7 +54,7 @@
 .quiz-info.quiz-opened .quiz-container {
 	max-width: 340px;
 	max-height: 90vh;
-	background: rgb(5,5,5);
+	background: var(--grey);
 	overflow-y: auto;
 	cursor: default;
 }
@@ -83,7 +83,7 @@
 		background: var(--black);
 	}
 	.quiz-info.quiz-opened .quiz-container:hover {
-		background: rgb(5,5,5);
+		background: var(--grey);
 	}
 	.quiz-info h5 {
 		text-transform: unset;
