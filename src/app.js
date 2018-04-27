@@ -30,7 +30,7 @@ class App extends React.Component {
 			this.getNextQuestionId()
 			).then(question => {
 				let { questions } = this.state
-
+				
 				questions.push(question)
 				this.setState({ questions, loading: false })
 			})
@@ -38,7 +38,7 @@ class App extends React.Component {
 
 	getNextQuestionId() {
 		let { answers, active, questions } = this.state
-		return questions[active].answer.related[answers[active + 1].value]
+		return questions[active].answer.related[answers[questions[active].id].value]
 	}
 
 	bindActive(active) {
@@ -55,6 +55,19 @@ class App extends React.Component {
 
 	handleSubmit() {
 		this.setState({ modalOpened: true })
+		this.questionsData.getRelatedProducts(
+			this.getRelatedProducts()
+		).then(products => {
+			console.log(products)
+		})
+	}
+
+	getRelatedProducts() {
+		let { questions, answers } = this.state
+
+		return questions.map((question, i) =>
+			question.answer.related[answers[question.id].value]
+		)
 	}
 
 	render() {

@@ -26,4 +26,8 @@ export default class QuestionsData extends Data {
 
 		return formated
 	}
+
+	getRelatedProducts(products) {
+		return this.post('/products-related', { products })
+	}
 }

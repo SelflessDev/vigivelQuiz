@@ -1,9 +1,9 @@
 export default class Data {
 
-	base = 'https://vigivel.com.br'
+	base = 'https://vigivelteste-com-br.umbler.net'
 
-	makeRequest(url, headers) {
-		return fetch(`${ this.base }/${ url }`, headers)
+	makeRequest(url, config) {
+		return fetch(`${ this.base }${ url }`, config)
 			.then(response => response.json())
 	}
 
@@ -14,7 +14,7 @@ export default class Data {
 	post(url, body) {
 		return this.makeRequest(url, {
 			method: 'POST',
-			body
+			body: JSON.stringify(body)
 		})
 	}
 }
