@@ -29,12 +29,14 @@ export default class Info extends React.Component {
 					className="quiz-container" 
 					ref={ ref => this.about = ref }
 				>
-					<div className="quiz-content">
-						<span>X</span>
+					<div className="quiz-wrapper">
+						<span className="quiz-close-button">X</span>
 						<h5 id="quiz-info"></h5>
-						<p id="quiz-info">
-							{ this.props.children }
-						</p>
+						<div className="quiz-content" id="quiz-info"
+							dangerouslySetInnerHTML={{ 
+								__html: this.props.children 
+							}}
+						/>
 					</div>
 				</div>
 			</div>
