@@ -10,3 +10,29 @@
 .quiz-block {
 	padding: 30px 20px;
 }
+
+.quiz-scrollable::-webkit-scrollbar {
+	width: 10px;
+}
+.quiz-scrollable::-webkit-scrollbar-thumb {
+	background: rgb(10,10,10);
+}
+
+h2.quiz-title  {
+	position: relative;
+	font-family: 'Oswald', sans-serif;
+	font-weight: 400;
+	font-size: 1.6em;
+	color: var(--blue);
+	text-transform: uppercase;
+}
+h2.quiz-title::after {
+	content: '';
+	position: absolute;
+	left: 0;
+	top: 100%;
+	width: 26%;
+	height: 4px;
+	background: var(--blue);
+	transition: all 0.2s ease-in-out;
+}

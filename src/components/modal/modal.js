@@ -9,7 +9,7 @@ export default class Modal extends React.Component {
 					? 'quiz-modal-wrapper-active'
 					: ''
 			}` }>
-				<div className="quiz-modal">
+				<div className="quiz-modal quiz-scrollable">
 					{ this.props.children }
 				</div>
 			</div>

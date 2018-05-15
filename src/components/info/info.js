@@ -26,7 +26,7 @@ export default class Info extends React.Component {
 			<div className={ `quiz-info ${ this.state.opened ? 'quiz-opened' : '' }` }>
 				<div 
 					id="quiz-info"
-					className="quiz-container" 
+					className="quiz-container quiz-scrollable" 
 					ref={ ref => this.about = ref }
 				>
 					<div className="quiz-wrapper">

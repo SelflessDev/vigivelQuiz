@@ -15,7 +15,6 @@ export default class QuestionsData extends Data {
 	}
 
 	formatQuestion(question, id) {
-		console.log(question)
 		let formated = question
 
 		if(formated.answer.options)

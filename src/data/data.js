@@ -5,10 +5,7 @@ export default class Data {
 
 	makeRequest(url, config) {
 		return fetch(`${ this.base }${ url }`, config)
-			.then(response => {
-				console.log(response)
-				return response.json()
-			})
+			.then(response => response.json())
 	}
 
 	get(url) {

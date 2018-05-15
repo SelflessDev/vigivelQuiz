@@ -4,7 +4,7 @@ import './app.css'
 
 import Quiz from 'quiz/quiz'
 import QuestionsData from 'questionsData'
-import Modal from 'modal/modal'
+import Products from 'products/products'
 
 class App extends React.Component {
 
@@ -58,7 +58,7 @@ class App extends React.Component {
 		this.questionsData.getRelatedProducts(
 			this.getRelatedProducts()
 		).then(products => {
-			console.log(products)
+			this.setState({ products })
 		})
 	}
 
@@ -82,7 +82,10 @@ class App extends React.Component {
 					onSubmit={ () => this.handleSubmit() }
 					loading={ this.state.loading }
 				/>
-				<Modal opened={ this.state.modalOpened }/>
+				<Products 
+					showing={ this.state.modalOpened }
+					products={ this.state.products }
+				/>
 			</div>
 		)
 	}

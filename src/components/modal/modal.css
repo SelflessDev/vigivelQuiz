@@ -9,10 +9,13 @@
 	justify-content: center;
 	overflow: hidden;
 	transform: scale(0) rotate(60deg);
+	background: rgba(0,0,0,0);
 	transition: transform 0.4s ease-in-out;
+	z-index: 20;
 }
 .quiz-modal-wrapper-active {
 	transform: scale(1) rotate(0deg);
+	background: rgba(0,0,0,0.65);
 }
 .quiz-modal {
 	position: relative;
@@ -20,6 +23,8 @@
 	height: 70vh;
 	padding: 30px;
 	background: var(--grey);
+	overflow-y: auto;
+	overflow-x: hidden;
 }
 
 .quiz-modal::before,
@@ -38,4 +43,11 @@
 .quiz-modal::after {
 	bottom: -1px;
 	right: -1px;
+}
+
+.quiz-modal .quiz-loading-anim {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
 }

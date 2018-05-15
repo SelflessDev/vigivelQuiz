@@ -17,7 +17,7 @@ export default class Question extends React.Component {
 					this.props.loading ? 'quiz-loading' : ''
 				}` }
 			>
-				<h2 className="quiz-block">
+				<h2 className="quiz-block quiz-title">
 					{ this.props.text }
 				</h2>
 				<div className="quiz-block">

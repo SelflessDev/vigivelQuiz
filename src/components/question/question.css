@@ -2,24 +2,6 @@
 	transform: translate(0, -50%);
 	transition: all 0.5s ease-in-out;
 }
-.quiz-question h2 {
-	position: relative;
-	font-family: 'Oswald', sans-serif;
-	font-weight: 400;
-	font-size: 1.6em;
-	color: var(--blue);
-	text-transform: uppercase;
-}
-.quiz-question h2::after {
-	content: '';
-	position: absolute;
-	left: 0;
-	top: 100%;
-	width: 26%;
-	height: 4px;
-	background: var(--blue);
-	transition: all 0.2s ease-in-out;
-}
 
 .quiz-question.quiz-loading {
 	opacity: 0.35;
