@@ -1,10 +1,14 @@
 export default class Data {
 
-	base = 'https://vigivelteste-com-br.umbler.net'
+	// base = 'https://vigivelteste-com-br.umbler.net'
+	base = 'http://localhost:8000'
 
 	makeRequest(url, config) {
 		return fetch(`${ this.base }${ url }`, config)
-			.then(response => response.json())
+			.then(response => {
+				console.log(response)
+				return response.json()
+			})
 	}
 
 	get(url) {

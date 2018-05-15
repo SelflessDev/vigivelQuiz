@@ -43,7 +43,7 @@
 	content: 'SOBRE'
 }
 
-.quiz-info .quiz-wrapper .quiz-content span {
+.quiz-info .quiz-wrapper .quiz-content span, strong {
 	font-family: 'Oswald', sans-serif !important;
 	font-weight: 400 !important;
 	font-size: 1.1em !important;
