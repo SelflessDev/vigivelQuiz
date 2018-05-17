@@ -24,11 +24,30 @@ export default class Concact extends React.Component {
 	}
 
 	handleSuccess(msg) {
-		console.log(msg)
+		this.setState({ msg })
 	}
 
 	handleFailure() {
-		console.log('?')
+		this.setState({ 
+			msg: 'Houve um problema ao enviar o contato. Tente novamente mais tarde' 
+		})
+	}
+
+	getContent() {
+		return this.state.msg
+			? <span className="quiz-msg">{ this.state.msg }</span>
+			: (
+				<form onSubmit={ e => this.handleSubmit(e) }>
+					<input 
+						type="email" 
+						name="email" 
+						placeholder="E-mail"
+						value={ this.state.email }
+						onChange={ e => this.setState({ email: e.target.value }) }
+					/>
+					<input type="submit" value="Enviar"/>
+				</form>
+			)
 	}
 
 	render() {
@@ -38,16 +57,7 @@ export default class Concact extends React.Component {
 					INTERESSADO ? ENTRE EM CONTATO CONOSCO
 				</h2>
 				<div className="quiz-block quiz-answer">
-					<form onSubmit={ e => this.handleSubmit(e) }>
-						<input 
-							type="email" 
-							name="email" 
-							placeholder="E-mail"
-							value={ this.state.email }
-							onChange={ e => this.setState({ email: e.target.value }) }
-						/>
-						<input type="submit" value="Enviar"/>
-					</form>
+					{ this.getContent() }
 				</div>
 			</div>
 		)

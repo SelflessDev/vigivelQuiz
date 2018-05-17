@@ -25,3 +25,9 @@
 	color: var(--white);
 	background: var(--blue);
 }
+.quiz-contact .quiz-msg {
+	font-family: 'Oswald', sans-serif;
+	font-size: 1em;
+	font-weight: bold;
+	color: var(--white);
+}
