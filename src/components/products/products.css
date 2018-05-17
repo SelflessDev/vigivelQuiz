@@ -9,6 +9,13 @@
 	opacity: 0;
 	transition: all 1s ease-in-out;
 }
-.quiz-products.active {
+.quiz-products.quiz-active {
 	opacity: 1;
+}
+.quiz-products.quiz-loading {
+	opacity: 0.26;
+}
+
+.quiz-products + .quiz-loading-anim {
+	position: fixed !important;
 }

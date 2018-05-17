@@ -1,0 +1,27 @@
+.quiz-contact form {
+	display: flex;
+	align-items: center;
+}
+
+.quiz-contact form input:nth-child(1) {
+	width: 85%;
+}
+.quiz-contact form input[type="submit"] {
+	width: 15%;
+	padding: 10px;
+	margin-bottom: 20px;
+	border: none;
+	font-family: 'Oswald', sans-serif;
+	font-size: 1em;
+	font-weight: bold;
+	color: var(--blue);
+	text-transform: uppercase;
+	background: none;
+	cursor: pointer;
+	transition: all 0.2s ease-in-out;
+}
+.quiz-contact form input[type="submit"]:hover {
+	width: 25%;
+	color: var(--white);
+	background: var(--blue);
+}

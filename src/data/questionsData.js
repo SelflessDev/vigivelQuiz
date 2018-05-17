@@ -30,4 +30,8 @@ export default class QuestionsData extends Data {
 	getRelatedProducts(products) {
 		return this.post('/products-related', { products })
 	}
+
+	sendEmail(email) {
+		return this.post('/submit-mail', { email })
+	}
 }
