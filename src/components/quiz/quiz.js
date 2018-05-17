@@ -13,7 +13,7 @@ export default class Quiz extends React.Component {
 	}
 
 	handleKeyPress(e) {
-		e.key == "Enter" && this.advance()
+		e.key == "Enter" && this.goForward()
 	}
 
 	goForward() {
